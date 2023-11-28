@@ -30,6 +30,7 @@ export default function WorkshopManagementComponent() {
   };
   const handleCreateWorkshop = (workshop) => {
     setSelectedWorkshop(workshop);
+    setStatusFilter("Inactive");
     setRenderedIndex(2);
   };
   const handleOpenModal = (workshop) => {
@@ -64,7 +65,7 @@ export default function WorkshopManagementComponent() {
       <ToastContainer />
 
       <ThemeProvider theme={ochreTheme}>
-        <ReworkSidebar selectTab={3} />
+        <ReworkSidebar selectTab={4} />
         {/* <Button
                 variant="contained"
                 color="ochre"
@@ -72,8 +73,8 @@ export default function WorkshopManagementComponent() {
               >
                 Test trainer slot
               </Button> */}
-        <Grid container spacing={1} sx={{ margin: "15px" }}>
-          <Grid container item xs={6} justifyContent="flex-start">
+        <Grid container spacing={1} padding={5}>
+          <Grid container item xs={6} justifyContent="flex-start" padding={3}>
             {renderedIndex === 0 ? (
               // <Button
               //   color="ochre"
@@ -99,8 +100,8 @@ export default function WorkshopManagementComponent() {
               </Button>
             )}
           </Grid>
-          <Grid container item spacing={0} xs={6} justifyContent="flex-end">
-            {renderedIndex === 1 || renderedIndex === 3? (
+          <Grid container item xs={6} justifyContent="flex-end" padding={3}>
+            {!(renderedIndex === 0) ? (
               <></>
             ) : (
               // <Button
